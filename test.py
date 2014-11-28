@@ -110,33 +110,33 @@ __author__ = 'wl'
 
 #https://oj.leetcode.com/problems/merge-intervals/
 
-class Interval:
-
-    def __init__(self, s=0, e=0):
-        self.start = s
-        self.end = e
-
-class Solution:
-
-    # @param intervals, a list of Interval
-    # @return a list of Interval
-    def merge(self, intervals):
-
-        if len(intervals) <= 1:
-            return intervals
-
-        intervals.sort(lambda x, y: cmp(x.start, y.start))
-        new_intervals = [ ]
-        last_interval = intervals[0]
-        for i in range(1, len(intervals)):
-            if intervals[i].start >= last_interval.start and intervals[i].start <= last_interval.end:
-                if intervals[i].end >= last_interval.start and intervals[i].end <= last_interval.end:
-                    pass
-                else:
-                    last_interval.end = intervals[i].end
-            else:
-                new_intervals.append(last_interval)
-                last_interval = intervals[i]
-        new_intervals.append(last_interval)
-
-        return new_intervals
+# class Interval:
+#
+#     def __init__(self, s=0, e=0):
+#         self.start = s
+#         self.end = e
+#
+# class Solution:
+#
+#     # @param intervals, a list of Interval
+#     # @return a list of Interval
+#     def merge(self, intervals):
+#
+#         if len(intervals) <= 1:
+#             return intervals
+#
+#         intervals.sort(lambda x, y: cmp(x.start, y.start))
+#         new_intervals = [ ]
+#         last_interval = intervals[0]
+#         for i in range(1, len(intervals)):
+#             if intervals[i].start >= last_interval.start and intervals[i].start <= last_interval.end:
+#                 if intervals[i].end >= last_interval.start and intervals[i].end <= last_interval.end:
+#                     pass
+#                 else:
+#                     last_interval.end = intervals[i].end
+#             else:
+#                 new_intervals.append(last_interval)
+#                 last_interval = intervals[i]
+#         new_intervals.append(last_interval)
+#
+#         return new_intervals
