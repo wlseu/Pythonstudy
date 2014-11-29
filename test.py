@@ -140,3 +140,54 @@ __author__ = 'wl'
 #         new_intervals.append(last_interval)
 #
 #         return new_intervals
+
+#https://oj.leetcode.com/problems/sum-root-to-leaf-numbers/
+
+
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+#
+# class Solution:
+#     # @param root, a tree node
+#     # @return an integer
+#     def sum(self,root,pathsum):
+#         if root == None:
+#             return 0
+#         pathsum = pathsum*10 + root.val
+#         if root.left == None and root.right == None:
+#             return pathsum
+#         return self.sum(root.left,pathsum) + self.sum(root.right, pathsum)
+#     def sumNumbers(self, root):
+#         return self.sum(root, 0)
+
+
+
+# https://oj.leetcode.com/problems/merge-two-sorted-lists/
+
+
+class ListNode:
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
+class Solution:
+    # @param two ListNodes
+    # @return a ListNode
+    def mergeTwoLists(self, l1, l2):
+        temp = []
+        while l1 > 0 and l2 > 0:
+            if l1[0] > l2[0]:
+                temp.append(l2[0])
+                del l2[0]
+            else:
+                temp.append(l1[0])
+                del l1[0]
+        if len(l1) > 0:
+            temp = temp + l1
+        else:
+            temp = temp + l2
+        return temp
+
